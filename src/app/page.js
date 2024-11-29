@@ -14,7 +14,7 @@ export default function Home() {
       <div id="chat" className="max-w-md mx-auto">
         <h2 className="text-3xl font-bold text-black text-center">
           THE AI <br />
-          THAT <span className="gradient-text">THINKS</span> ALONGSIDE US ALL
+          THAT <span className="gradient-text">THINKS</span> ALONGSIDE<br /> US ALL
         </h2>
       </div>
       <ChatBlock />

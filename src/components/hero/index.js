@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 const Hero = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-500 text-center text-black py-10 px-5">
-      <h1 className="text-4xl font-bold mb-4">Lumina</h1>
+      <h1 className="text-4xl font-bold mb-4">Lumi AI</h1>
       <div className="max-w-2xl">
         <p className="text-xl mb-6">
           We've created this space to inspire, educate, and amaze. Here, you'll

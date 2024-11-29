@@ -5,7 +5,12 @@ const Header = () => {
   return (
     <header className="text-black bg-wild-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-primary-foreground  text-cblack-100 "><Link href="/">Lumina</Link></h1>
+        <h1 className="text-2xl font-bold text-primary-foreground  ">
+          <Link href="/" className="text-cblack-100">
+            Lumi.
+            <span className="gradient-text">AI</span>
+          </Link>
+        </h1>
         <nav>
           <ul className="flex gap-6">
             <li>
