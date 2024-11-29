@@ -75,6 +75,10 @@ module.exports = {
           900: "#3d3d3d",
           950: "#292929",
         },
+        cblack: {
+          50: "#2E2E2E",
+          100: "#1a1a1a",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

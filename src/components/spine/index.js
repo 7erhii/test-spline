@@ -3,38 +3,29 @@ import React, { useEffect, useState } from "react";
 import Spline from "@splinetool/react-spline";
 
 const Spine = () => {
-  const [scale, setScale] = useState(0.5);
+  const [scenePath, setScenePath] = useState("/shift_500.spline");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollFactor = Math.min(scrollTop / maxScroll, 1);
-
-      const newScale = 0.5 + scrollFactor * 0.5;
-      setScale(newScale);
+    const checkScreenSize = () => {
+      if (window.innerWidth < 540) {
+        setScenePath("/shift_302.spline");
+      } else {
+        setScenePath("/shift_500.spline");
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    checkScreenSize();
+
+    window.addEventListener("resize", checkScreenSize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 text-center">
-      <div
-        style={{
-          transform: `scale(${scale})`,
-          transition: "transform 0.1s ease-out",
-        }}
-      >
-        <Spline scene="/shift_500.spline" />
-      </div>
-      <div>
-        
-      </div>
+    <div className="flex items-center justify-center text-center">
+      <Spline scene={scenePath} className="flex justify-center" />
     </div>
   );
 };
