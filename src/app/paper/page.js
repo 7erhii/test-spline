@@ -54,7 +54,7 @@ const Content = () => {
     <div className="flex" style={{ height: "calc(100vh - 100px)" }}>
       <div className="w-1/6 ">
         <div className="flex flex-col p-4 text-[12px] text-cblack-100 gap-1 mt-12 border-t border-b border-cblack-25">
-          <h2>AEJO AGENT TERMINAL</h2>
+          <h2 className="font-bold">AEJO AGENT TERMINAL</h2>
           <p className="opacity-50">UPDATED: nov 26, 2024</p>
           <p className="opacity-50">v1.4</p>
         </div>
@@ -88,6 +88,10 @@ const Content = () => {
             <p className="text-cblack-100">Monitor</p>
           </li>
         </ul>
+        <div className="text-black">
+          
+          
+        </div>
       </div>
 
       <div className="w-5/6 overflow-y-auto border-l border-cblack-25">
