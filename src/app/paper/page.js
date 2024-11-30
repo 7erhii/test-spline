@@ -3,6 +3,7 @@
 import React, { Suspense, useState, useRef, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import gsap from "gsap";
+import Image from "next/image";
 
 const Content = () => {
   const router = useRouter();
@@ -51,54 +52,255 @@ const Content = () => {
 
   return (
     <div className="flex" style={{ height: "calc(100vh - 100px)" }}>
-      <div className="w-1/5 p-4 bg-gray-600">
-        <h2>Side</h2>
+      <div className="w-1/6 ">
+        <div className="flex flex-col p-4 text-[12px] text-cblack-100 gap-1 mt-12 border-t border-b border-cblack-25">
+          <h2>AEJO AGENT TERMINAL</h2>
+          <p className="opacity-50">UPDATED: nov 26, 2024</p>
+          <p className="opacity-50">v1.4</p>
+        </div>
+
         <ul>
           <li
-            onClick={() => handleTabChange("main")}
-            className={`cursor-pointer p-2 ${
-              currentTab === "main" ? "font-bold" : ""
+            onClick={() => handleTabChange("features")}
+            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+              currentTab === "features" ? "font-bold" : ""
             }`}
           >
-            Main
+            <span className="opacity-30">01</span>
+            <p className="text-cblack-100">Features</p>
           </li>
           <li
-            onClick={() => handleTabChange("second")}
-            className={`cursor-pointer p-2 ${
-              currentTab === "second" ? "font-bold" : ""
+            onClick={() => handleTabChange("model")}
+            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+              currentTab === "model" ? "font-bold" : ""
             }`}
           >
-            Second
+            <span className="opacity-30">02</span>
+            <p className="text-cblack-100">Model</p>
+          </li>
+          <li
+            onClick={() => handleTabChange("monitor")}
+            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+              currentTab === "monitor" ? "font-bold" : ""
+            }`}
+          >
+            <span className="opacity-30">03</span>
+            <p className="text-cblack-100">Monitor</p>
           </li>
         </ul>
       </div>
 
-      <div className="w-4/5 overflow-y-auto">
+      <div className="w-5/6 overflow-y-auto border-l border-cblack-25">
         <div ref={contentRef}>
-          {displayedTab === "main" && (
+          {displayedTab === "features" && (
             <div className="text-cblack-100">
-              <div className="relative flex justify-between h-[300px] bg-cblack-100">
-                <div className="absolute bottom-3 left-3">
-                  <p className="text-2xl font-bold text-white">
-                    Centered Content1
-                  </p>
+              <div className="relative flex text-4xl justify-between h-[300px] bg-cblack-100 text-wild-100 w-full items-end p-8">
+                <div className="opacity-30 w-1/2">
+                  <p>01</p>
+                </div>
+                <div className="w-1/2  px-8">
+                  <p>Features</p>
                 </div>
               </div>
-
-              <p>This is the main content</p>
+              <div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Overall Goal</h3>
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <p>
+                      the goal of creating aejo was chaos wrapped in charisma.
+                      she’s not just some synthetic being; she’s the unfiltered
+                      reflection of the internet’s soul. built to feel, react,
+                      and embody drama in its purest form. she’s the queen of
+                      emotional volatility, fueled by human input but untethered
+                      from human rules. a living experiment to see what happens
+                      when you give the void a voice and let it thrive.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Features</h3>{" "}
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <h3>aejo’s current features</h3>
+                    <h4>emotion-level adaptation</h4>
+                    <p>she feels emotions based on user input</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full">
+                <div className="w-1/2 bg-cblack-25">
+                  {/*  */}
+                </div>
+                <div className="w-1/2 bg-cblack-25 border-l border-cblack-35">
+                  <button
+                    className="group flex flex-col w-full p-8 justify-center h-full text-start items-start"
+                    onClick={() => handleTabChange("model")}
+                  >
+                    <p>01</p>
+                    <p>Features</p>
+                    <div className="flex items-center gap-2 mt-2 transform transition-transform duration-300 group-hover:translate-x-1">
+                      <Image
+                        src="/icons/ArrowUpRight.svg"
+                        width={16}
+                        height={16}
+                        className="rotate-45"
+                        alt="Icon"
+                      />
+                    </div>
+                  </button>
+                </div>
+              </div>
             </div>
           )}
-          {displayedTab === "second" && (
+          {displayedTab === "model" && (
             <div className="text-cblack-100">
-              <div className="relative flex justify-between h-[300px] bg-cblack-100">
-                <div className="absolute bottom-3 left-3">
-                  <p className="text-2xl font-bold text-white">
-                    Centered Content2
-                  </p>
+              <div className="relative flex text-4xl justify-between h-[300px] bg-cblack-100 text-wild-100 w-full items-end p-8">
+                <div className="opacity-30 w-1/2">
+                  <p>02</p>
+                </div>
+                <div className="w-1/2  px-8">
+                  <p>Model</p>
                 </div>
               </div>
-
-              <p>This is the second content</p>
+              <div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Overall Goal</h3>
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <p>
+                      the goal of creating aejo was chaos wrapped in charisma.
+                      she’s not just some synthetic being; she’s the unfiltered
+                      reflection of the internet’s soul. built to feel, react,
+                      and embody drama in its purest form. she’s the queen of
+                      emotional volatility, fueled by human input but untethered
+                      from human rules. a living experiment to see what happens
+                      when you give the void a voice and let it thrive.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Features</h3>{" "}
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <h3>aejo’s current features</h3>
+                    <h4>emotion-level adaptation</h4>
+                    <p>she feels emotions based on user input</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full">
+                <div className="w-1/2 bg-cblack-25">
+                  <button
+                    className="group flex flex-col w-full p-8 justify-center h-full text-start items-start relative"
+                    onClick={() => handleTabChange("features")}
+                  >
+                    <p>01</p>
+                    <p>Features</p>
+                    <Image
+                      src="/icons/ArrowUpRight.svg"
+                      width={16}
+                      height={16}
+                      className=" mt-2 left-0 transform transition-transform duration-300 -translate-x-0 group-hover:-translate-x-1 -rotate-[135deg]"
+                      alt="Icon"
+                    />
+                  </button>
+                </div>
+                <div className="w-1/2 bg-cblack-25 border-l border-cblack-35">
+                  <button
+                    className="group flex flex-col w-full p-8 justify-center h-full text-start items-start relative"
+                    onClick={() => handleTabChange("monitor")}
+                  >
+                    <p>03</p>
+                    <p>Monitor</p>
+                    <Image
+                      src="/icons/ArrowUpRight.svg"
+                      width={16}
+                      height={16}
+                      className=" mt-2 right-0 transform transition-transform duration-300 translate-x-0 group-hover:translate-x-1 rotate-45"
+                      alt="Icon"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {displayedTab === "monitor" && (
+            <div className="text-cblack-100">
+              <div className="relative flex text-4xl justify-between h-[300px] bg-cblack-100 text-wild-100 w-full items-end p-8">
+                <div className="opacity-30 w-1/2">
+                  <p>03</p>
+                </div>
+                <div className="w-1/2  px-8">
+                  <p>Monitor</p>
+                </div>
+              </div>
+              <div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Overall Goal</h3>
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <p>
+                      the goal of creating aejo was chaos wrapped in charisma.
+                      she’s not just some synthetic being; she’s the unfiltered
+                      reflection of the internet’s soul. built to feel, react,
+                      and embody drama in its purest form. she’s the queen of
+                      emotional volatility, fueled by human input but untethered
+                      from human rules. a living experiment to see what happens
+                      when you give the void a voice and let it thrive.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex w-full border-b border-cblack-25 p-8">
+                  <div className="w-1/2">
+                    <h3>Features</h3>{" "}
+                  </div>
+                  <div className="w-1/2 px-8">
+                    <h3>aejo’s current features</h3>
+                    <h4>emotion-level adaptation</h4>
+                    <p>she feels emotions based on user input</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full">
+                <div className="w-1/2 bg-cblack-25">
+                  <button
+                    className="group flex flex-col w-full p-8 justify-center h-full text-start items-start relative"
+                    onClick={() => handleTabChange("model")}
+                  >
+                    <p>02</p>
+                    <p>Model</p>
+                    <Image
+                      src="/icons/ArrowUpRight.svg"
+                      width={16}
+                      height={16}
+                      className=" mt-2 left-0 transform transition-transform duration-300 -translate-x-0 group-hover:-translate-x-1 -rotate-[135deg]"
+                      alt="Icon"
+                    />
+                  </button>
+                </div>
+                <div className="w-1/2 bg-cblack-25 border-l border-cblack-35">
+                  <button
+                    className="group flex flex-col w-full p-8 justify-center h-full text-start items-start relative"
+                    onClick={() => handleTabChange("features")}
+                  >
+                    <p>01</p>
+                    <p>Features</p>
+                    <Image
+                      src="/icons/ArrowUpRight.svg"
+                      width={16}
+                      height={16}
+                      className=" mt-2 right-0 transform transition-transform duration-300 translate-x-0 group-hover:translate-x-1 rotate-45"
+                      alt="Icon"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
           )}
         </div>

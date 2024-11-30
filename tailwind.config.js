@@ -76,6 +76,8 @@ module.exports = {
           950: "#292929",
         },
         cblack: {
+          25: "#e3e3e3",
+          35: "#ebebeb",
           50: "#2E2E2E",
           100: "#1a1a1a",
         }
