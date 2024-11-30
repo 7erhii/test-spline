@@ -3,9 +3,50 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueBold.otf') format('opentype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueLight.otf') format('opentype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueMedium.otf') format('opentype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueThin.otf') format('opentype');
+  font-weight: 100; /* Thin */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueUltraLight.otf') format('opentype');
+  font-weight: 200; /* Ultra Light */
+  font-style: normal;
+}
+
+
+body {
+  /* font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif; */
+}
+
+.font-helvetica {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
 
 @layer base {
   :root {
@@ -95,7 +136,7 @@ body {
   }
 }
 
-
+/* 
 .hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none; 
@@ -108,4 +149,8 @@ body {
 .animated-word {
   display: inline-block;
   animation: matrix-glow 1.5s infinite alternate;
+} */
+
+.li {
+  cursor: pointer;
 }

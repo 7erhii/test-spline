@@ -1,15 +1,11 @@
 import ChatBlock from "@/components/chatBlock";
-import Conversatios from "@/components/conversatios";
-import Hero from "@/components/hero";
 import Spine from "@/components/spine";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <Hero />
-      <Conversatios />
-      {/* <Spine />
+    <div className="flex flex-col gap-4">
+      <Spine />
       <div className="relative">
         <Button className=" absolute -top-[30px] left-1/2 transform -translate-x-1/2 px-6 text-white rounded-full">
           Chat Now
@@ -21,7 +17,7 @@ export default function Home() {
           THAT <span className="gradient-text">THINKS</span> ALONGSIDE<br /> US ALL
         </h2>
       </div>
-      <ChatBlock /> */}
+      <ChatBlock />
     </div>
   );
 }
