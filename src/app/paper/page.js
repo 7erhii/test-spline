@@ -10,14 +10,14 @@ const Content = () => {
   const searchParams = useSearchParams();
 
   const [currentTab, setCurrentTab] = useState(
-    searchParams.get("tab") || "main"
+    searchParams.get("tab") || "features",
   );
   const [displayedTab, setDisplayedTab] = useState(currentTab);
 
   const contentRef = useRef(null);
 
   useEffect(() => {
-    const tab = searchParams.get("tab") || "main";
+    const tab = searchParams.get("tab") || "features";
     setCurrentTab(tab);
   }, [searchParams]);
 
