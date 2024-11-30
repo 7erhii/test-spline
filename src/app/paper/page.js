@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import React, { Suspense, useState, useRef, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import gsap from "gsap";
 
-const Index = () => {
+const Content = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -106,5 +106,11 @@ const Index = () => {
     </div>
   );
 };
+
+const Index = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Content />
+  </Suspense>
+);
 
 export default Index;
