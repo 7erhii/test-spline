@@ -4,13 +4,14 @@ import React, { Suspense, useState, useRef, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import gsap from "gsap";
 import Image from "next/image";
+import CustomButton from "@/components/custom-button";
 
 const Content = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [currentTab, setCurrentTab] = useState(
-    searchParams.get("tab") || "features",
+    searchParams.get("tab") || "features"
   );
   const [displayedTab, setDisplayedTab] = useState(currentTab);
 
@@ -52,45 +53,47 @@ const Content = () => {
 
   return (
     <div className="flex" style={{ height: "calc(100vh - 100px)" }}>
-      <div className="w-1/6 ">
-        <div className="flex flex-col p-4 text-[12px] text-cblack-100 gap-1 mt-12 border-t border-b border-cblack-25">
-          <h2 className="font-bold">AEJO AGENT TERMINAL</h2>
-          <p className="opacity-50">UPDATED: nov 26, 2024</p>
-          <p className="opacity-50">v1.4</p>
+      <div className="w-1/6 flex flex-col justify-between">
+        <div>
+          <div className="flex flex-col p-4 text-[12px] text-cblack-100 gap-1 mt-12 border-t border-b border-cblack-25">
+            <h2 className="font-bold">AEJO AGENT TERMINAL</h2>
+            <p className="opacity-50">UPDATED: nov 26, 2024</p>
+            <p className="opacity-50">v1.4</p>
+          </div>
+
+          <ul>
+            <li
+              onClick={() => handleTabChange("features")}
+              className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+                currentTab === "features" ? "font-bold" : ""
+              }`}
+            >
+              <span className="opacity-30">01</span>
+              <p className="text-cblack-100">Features</p>
+            </li>
+            <li
+              onClick={() => handleTabChange("model")}
+              className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+                currentTab === "model" ? "font-bold" : ""
+              }`}
+            >
+              <span className="opacity-30">02</span>
+              <p className="text-cblack-100">Model</p>
+            </li>
+            <li
+              onClick={() => handleTabChange("monitor")}
+              className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
+                currentTab === "monitor" ? "font-bold" : ""
+              }`}
+            >
+              <span className="opacity-30">03</span>
+              <p className="text-cblack-100">Monitor</p>
+            </li>
+          </ul>
         </div>
 
-        <ul>
-          <li
-            onClick={() => handleTabChange("features")}
-            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
-              currentTab === "features" ? "font-bold" : ""
-            }`}
-          >
-            <span className="opacity-30">01</span>
-            <p className="text-cblack-100">Features</p>
-          </li>
-          <li
-            onClick={() => handleTabChange("model")}
-            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
-              currentTab === "model" ? "font-bold" : ""
-            }`}
-          >
-            <span className="opacity-30">02</span>
-            <p className="text-cblack-100">Model</p>
-          </li>
-          <li
-            onClick={() => handleTabChange("monitor")}
-            className={`flex cursor-pointer text-cblack-100 p-4 border-b border-cblack-25 gap-2 ${
-              currentTab === "monitor" ? "font-bold" : ""
-            }`}
-          >
-            <span className="opacity-30">03</span>
-            <p className="text-cblack-100">Monitor</p>
-          </li>
-        </ul>
-        <div className="text-black">
-          
-          
+        <div className="text-black p-5 border-t border-cblack-25">
+          <CustomButton text="TWITTER" withIcon={true} href="/" />
         </div>
       </div>
 
@@ -135,9 +138,7 @@ const Content = () => {
                 </div>
               </div>
               <div className="flex w-full">
-                <div className="w-1/2 bg-cblack-25">
-                  {/*  */}
-                </div>
+                <div className="w-1/2 bg-cblack-25">{/*  */}</div>
                 <div className="w-1/2 bg-cblack-25 border-l border-cblack-35">
                   <button
                     className="group flex flex-col w-full p-8 justify-center h-full text-start items-start"

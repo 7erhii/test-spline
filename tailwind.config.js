@@ -80,7 +80,7 @@ module.exports = {
           35: "#ebebeb",
           50: "#2E2E2E",
           100: "#1a1a1a",
-        }
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
