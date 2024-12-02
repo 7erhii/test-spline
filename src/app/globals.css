@@ -160,3 +160,10 @@ body {
 /*  */
 /*  */
 
+/* .gradient-text {
+  background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+  background-size: 200% auto;
+  background-position: 0% center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */

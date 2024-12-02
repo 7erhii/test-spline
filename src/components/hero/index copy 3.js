@@ -8,7 +8,6 @@ import animationData from "../../../public/lottie.json";
 import Image from "next/image";
 import Bubble from "../bubble";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const bubbles = [
@@ -98,7 +97,7 @@ const Hero = () => {
       ].sort((a, b) => a - b);
 
       const bubblesTimeline = gsap.timeline({ repeat: -1 });
-      const stepBetweenGroups = 0.5;
+      const stepBetweenGroups = 0.5; 
 
       sortedDelayValues.forEach((delayValue, groupIndex) => {
         const groupBubbles = bubbles.filter((b) => b.delay === delayValue);

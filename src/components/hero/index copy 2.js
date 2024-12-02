@@ -9,6 +9,7 @@ import Image from "next/image";
 import Bubble from "../bubble";
 
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const bubbles = [
@@ -77,6 +78,7 @@ const Hero = () => {
         "<"
       );
 
+      // Анимация для текста в конце скролла
       mainTimeline.to(
         textRef.current,
         {
@@ -93,17 +95,19 @@ const Hero = () => {
         "-=0.5"
       );
 
+      // Группируем пузыри по значению delay
       const sortedDelayValues = [
         ...new Set(bubbles.map((b) => b.delay)),
       ].sort((a, b) => a - b);
 
       const bubblesTimeline = gsap.timeline({ repeat: -1 });
-      const stepBetweenGroups = 0.5;
+      const stepBetweenGroups = 0.5; // Шаг между группами можно изменить по необходимости
 
       sortedDelayValues.forEach((delayValue, groupIndex) => {
         const groupBubbles = bubbles.filter((b) => b.delay === delayValue);
         const startTime = groupIndex * stepBetweenGroups;
 
+        // Появление пузырей
         groupBubbles.forEach((bubble) => {
           const bubbleIndex = bubbles.indexOf(bubble);
           bubblesTimeline.fromTo(
