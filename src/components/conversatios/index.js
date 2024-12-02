@@ -1,65 +1,23 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const messages = [
+const tweets = [
   {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
+    id: "1234567890",
+    content: "This is a dynamically added tweet!",
+    url: "https://twitter.com/user/status/1234567890",
+    timestamp: "2024-12-01T12:00:00Z",
   },
   {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
-  },
-  {
-    date: "25/11/2024",
-    time: "10:00 AM",
-    message:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia",
+    id: "0987654321",
+    content: "Another tweet to display in the list.",
+    url: "https://twitter.com/user/status/1234567890",
+    timestamp: "2024-12-02T08:30:00Z",
   },
 ];
 
@@ -79,7 +37,7 @@ const Conversations = () => {
             start: "top 80%",
             onEnter: () => {
               gsap.fromTo(
-                ".message-item",
+                ".tweet-item",
                 { opacity: 0, x: -30 },
                 {
                   opacity: 1,
@@ -100,29 +58,28 @@ const Conversations = () => {
 
   return (
     <div ref={containerRef}>
-      <h2>Recent Conversations</h2>
+      <h2>Recent Tweets</h2>
       <div className="px-12">
         <div className="border-t-2 border-[#DEDEDE] w-full">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className="message-item group flex items-center justify-between border-b-2 border-[#DEDEDE] hover:border-cblack-100 transition-colors duration-300 cursor-pointer"
+          {tweets.map((tweet) => (
+            <Link
+              href={tweet.url}
+              key={tweet.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tweet-item group flex items-center justify-between border-b-2 border-[#DEDEDE] hover:border-cblack-100 transition-colors duration-300 cursor-pointer"
             >
               <div className="flex flex-col gap-2 w-full max-w-[15%] text-cblack-100 border-r-2 border-[#DEDEDE] items-start py-8 min-w-[200px]">
-                <p className="text-[20px]">{message.date}</p>
-                <p className="text-[20px]">{message.time}</p>
+                <p className="text-[20px]">{new Date(tweet.timestamp).toLocaleDateString()}</p>
+                <p className="text-[20px]">{new Date(tweet.timestamp).toLocaleTimeString()}</p>
               </div>
               <div className="relative flex items-center gap-2 w-full text-cblack-100 pl-14">
-                <p className="text-2xl">{message.message}</p>
-                <Image
-                  src="/icons/ArrowUpRight.svg"
-                  width={36}
-                  height={36}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  alt="Icon"
-                />
+                <p className="text-2xl">{tweet.content}</p>
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cblack-100">
+                  →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
